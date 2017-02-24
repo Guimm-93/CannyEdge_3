@@ -1,5 +1,7 @@
 #include<opencv2\opencv.hpp>
 #include<iostream>
+#include <string>
+
 
 using namespace cv;
 using namespace std;
@@ -18,9 +20,9 @@ int main(int argc, char** argv)
 
 	double count = cap.get(CV_CAP_PROP_FRAME_COUNT); //get the frame count 
 
-	double Pos = count - 1; // evitar o primeiro frame
+	double Pos = 1; // evitar o primeiro frame
 	cout << count << endl;
-	cap.set(CV_CAP_PROP_POS_FRAMES, count - Pos); //Set index to last frame
+	cap.set(CV_CAP_PROP_POS_FRAMES, Pos); //Set index to first frame (simbolo da playstation)
 	namedWindow("MyVideo", CV_WINDOW_AUTOSIZE);
 	namedWindow("Teste_Gray", CV_WINDOW_AUTOSIZE);
 	namedWindow("Teste_GaussianBlur", CV_WINDOW_AUTOSIZE);
@@ -53,7 +55,15 @@ int main(int argc, char** argv)
 
 		// http://docs.opencv.org/2.4/doc/tutorials/introduction/load_save_image/load_save_image.html
 
-		imwrite("../../data/Output/Canny_Image_new.jpg", frame_canny);
+		int Pos_int = Pos;
+
+		string varAsString = to_string(Pos_int);
+
+		String directory = "../../data/Output/Canny_Image_new" + varAsString +".jpg";
+		cout << directory;
+
+
+		imwrite(directory, frame_canny);
 		//	img = cvQueryFrame(frame_canny);
 		//	cvSaveImage("frame/canny.jpg", img);
 
