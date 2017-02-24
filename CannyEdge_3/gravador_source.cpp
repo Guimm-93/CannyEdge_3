@@ -27,7 +27,7 @@ int main(int argc, char** argv)
 	namedWindow("Teste_Gray", CV_WINDOW_AUTOSIZE);
 	namedWindow("Teste_GaussianBlur", CV_WINDOW_AUTOSIZE);
 	namedWindow("Teste_Canny", CV_WINDOW_AUTOSIZE);
-
+	
 	while (Pos <= count)
 	{
 
@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 
 		string varAsString = to_string(Pos_int);
 
-		String directory = "../../data/Output/Canny_Image_new" + varAsString +".jpg";
+		String directory = "../../data/Output/Canny_Image_a" + varAsString +".jpg";
 		cout << directory;
 
 
