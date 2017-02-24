@@ -18,7 +18,7 @@ int main(int argc, char** argv)
 
 	double count = cap.get(CV_CAP_PROP_FRAME_COUNT); //get the frame count 
 
-	double Pos = 1; // evitar o primeiro frame
+	double Pos = 0; // evitar o primeiro frame
 	cout << count << endl;
 	cap.set(CV_CAP_PROP_POS_FRAMES, Pos); //Set index to first frame (simbolo da playstation)
 	/*namedWindow("MyVideo", CV_WINDOW_AUTOSIZE);
@@ -65,11 +65,12 @@ int main(int argc, char** argv)
 		//	img = cvQueryFrame(frame_canny);
 		//	cvSaveImage("frame/canny.jpg", img);
 
-		if (waitKey(0) == 27) break;
+		if (waitKey(0) == 27) break; // Não está a funcionar
 		
 		Pos=Pos+10; // para não fazer todos os frames
 
-		if (Pos_int % 10 == 0) {
+		//cout << Pos_int << endl;
+		if (Pos_int % 100 == 0) {
 			cout << "Mais 100" << endl;
 		}
 	}
